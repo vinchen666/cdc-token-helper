@@ -43,6 +43,9 @@ $(document).ready(function() {
                         sitesList.append(listItem);
                     }
                 });
+                if (sitesList.children().length === 0) {
+                    alert('No sites available. Please check the CDCSiteConfig from backoffice to ensure it is configured for the site.');
+                }
             }).fail(function() {
                 alert('Failed to load sites. Please check the base site URL.');
             });
