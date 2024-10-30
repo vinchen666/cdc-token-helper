@@ -3,14 +3,23 @@
         <title>CDC Token Helper</title>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="index.js"></script>
+        <style>
+            .height-normal {
+                height: 30px;
+            }
+        </style>
     </head>
     <body>
         <h1>Online CDC Token Helper</h1>
         <div>
-            <select id="env" style="width: 200px;">
+            <div style="font-weight: bold;">NOTE:</div>
+            <div>To fetch token for Commerce running in your local, you can clone <a href="https://github.tools.sap/I333486/cdc-token-helper-web">this project</a> and follow the README to setup, it would only takes you less than 5 minutes</div>
+        </div>
+        <div style="margin-top: 30px;">
+            <select id="env" style="width: 200px;" class="height-normal">
             </select>
-            <input id="baseSiteUrl" type="text" placeholder="Enter base site url" style="width: 480px;">
-            <button id="loadSites">Load Sites</button>
+            <input id="baseSiteUrl" type="text" placeholder="Enter base site url" style="width: 480px;" class="height-normal">
+            <button id="loadSites" class="height-normal">Load Sites</button>
         </div>
         <div>
             <ul id="sites">
