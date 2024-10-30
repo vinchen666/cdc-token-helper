@@ -10,6 +10,7 @@ This project is native html project, so you can run it with any http server, her
 
 2. clone this project to your local
 3. go to project root folder: `cd cdc-token-helper-web`
-4. run below command to start the server: `http-server -p 9999`, you can change 99999 to any port you want
+4. run below command to start the server: `http-server -p 9999`
+    note: you can change 9999 to any port you want, but please DONT do that, otherwise you will need to add the url to cdc redirect url list
 5. open http://localhost:9999 in browser
 6. you can get token for our demo/MET environments, or get token for your local by select `custom` as the environment, and input the occ api url for /basesites of your local or any other environments
