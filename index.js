@@ -26,17 +26,16 @@ $(document).ready(function() {
                 
                 sitesList.empty(); // Clear any existing list items
 
-                sitesList.append($('<h4></h4>').text('click below link to get token, if you can not find your site, please check the CDCSiteConfig from backoffice make sure it is configured for the site'));
+                // sitesList.append($('<h4></h4>').text('click below link to get token, if you can not find your site, please check the CDCSiteConfig from backoffice make sure it is configured for the site'));
 
                 $.each(data.baseSites, function(index, site) {
                     if (site.cdcSiteConfig) {
                         
                         var listItem = $('<li></li>');
-                        var link = $('<a></a>').attr('href','').text(site.uid);
-                        link.click(async function(event) {
+                        var link = $('<a></a>').text(site.uid);
+                        listItem.click(async function(event) {
                             event.preventDefault(); // Prevent default link behavior
                             var loginUrl = await getAuthUrl(site.cdcSiteConfig);
-                            link.attr('href', loginUrl);
                             localStorage.setItem('cdcSiteConfig', JSON.stringify(site.cdcSiteConfig));
                             window.location.href = loginUrl; // Redirect to loginUrl
                         });
