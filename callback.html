@@ -1,0 +1,36 @@
+<html>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const authorizationCode = urlParams.get('code');
+        const cdcSiteConfig = JSON.parse(localStorage.getItem('cdcSiteConfig'));
+        const tokenEndpoint = cdcSiteConfig.oidcOpIssuerURI + "/token";
+
+        const tokenRequestBody = {
+            grant_type: "authorization_code",
+            code: authorizationCode,
+            redirect_uri: window.location.protocol + "//" + window.location.host + "/callback.html",
+            client_id: cdcSiteConfig.oidcRpClientId,
+            code_verifier: localStorage.getItem('codeVerifier')
+        };
+
+        fetch(tokenEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams(tokenRequestBody)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const accessToken = data.access_token;
+            localStorage.setItem('token_data', JSON.stringify(data));
+            window.location = '/welcome.html';
+        })
+        .catch(error => {
+            console.error('Error fetching the access token:', error);
+        });
+    </script>
+    <body>
+        <h1>Authenticated, redirecting...</h1>
+    </body>
+</html>

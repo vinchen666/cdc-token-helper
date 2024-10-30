@@ -1,0 +1,7 @@
+---
+applications:
+  - name: cdc-token-helper
+    random-route: true
+    memory: 64M
+    path: .
+    buildpack: staticfile_buildpack

@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var tokenData = localStorage.getItem("token_data");
+                var dataElement = document.getElementById("data");
+                // dataElement.textContent = tokenData.replace(/\n/g, "<br>");
+
+                if (tokenData) {
+                    var tokenObj = JSON.parse(tokenData);
+                    for (var key in tokenObj) {
+                        if (tokenObj.hasOwnProperty(key)) {
+                            var fieldElement = document.createElement("div");
+                            fieldElement.className = "field";
+                            fieldElement.textContent = key + ": " + tokenObj[key];
+                            fieldElement.addEventListener("click", function() {
+                                var textToCopy = this.textContent.split(": ")[1];
+                                navigator.clipboard.writeText(textToCopy).then(function() {
+                                    alert("Copied to clipboard: " + textToCopy);
+                                }, function(err) {
+                                    console.error("Could not copy text: ", err);
+                                });
+                            });
+                            dataElement.appendChild(fieldElement);
+                        }
+                    }
+                }
+
+            });
+        </script>
+        <style>
+            .field {
+                cursor: pointer;
+                margin: 5px 0;
+            }
+            .field:hover {
+                background-color: #f0f0f0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><a rel="stylesheet" href="/index.html">Home</a></h1>
+        <h1>You have been authenticated! Welcome!</h1>
+        <div id="data"></div>
+        <br>
+        <br>
+        <div style="color:coral; font-weight: bold;">
+            Note:
+            Once you have logged in from CDC, you will be redirected to this page and have no opportunity to log out.
+            If you want to fetch token for another user, you need to clear the browser cache or use incognito mode.
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+{
+    "envs": [
+        {
+            "name": "custom",
+            "baseSiteUrl": null
+        },
+        {
+            "name": "demo5",
+            "baseSiteUrl": "https://api.pilot-demo5-p1-public.model-t.myhybris.cloud/occ/v2/basesites"
+        },
+        {
+            "name": "demo6",
+            "baseSiteUrl": "https://api.pilot-demo6-p1-public.model-t.myhybris.cloud/occ/v2/basesites"
+        },
+        {
+            "name": "demo7",
+            "baseSiteUrl": "https://api.pilot-demo7-p1-public.model-t.myhybris.cloud/occ/v2/basesites"
+        },
+        {
+            "name": "MET",
+            "baseSiteUrl": "https://api.ct3nlsb8ad-commercet1-p1-public.model-t.myhybris.cloud/occ/v2/basesites"
+        }
+    ]
+}
