@@ -18,10 +18,12 @@ $(document).ready(function() {
     $('#loadSites').click(function() {
         // Send GET request to basesiteurl
         baseSiteUrl = $('#baseSiteUrl').val();
+        var sitesList = $('#sites');
+        sitesList.empty();
 
         if (baseSiteUrl !== '') {
             $.get(baseSiteUrl + '?fields=FULL', function(data) {
-                var sitesList = $('#sites');
+                
                 sitesList.empty(); // Clear any existing list items
 
                 sitesList.append($('<h4></h4>').text('click below link to get token, if you can not find your site, please check the CDCSiteConfig from backoffice make sure it is configured for the site'));
